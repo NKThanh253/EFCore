@@ -15,6 +15,7 @@ namespace NguyenKhacThanh_EFCore
 
         public int GradeId { get; set; }
         public string GradeName { get; set; }
-        public IList<Student> Students { get; set; }
+        //public IList<Student> Students { get; set; }
+        public ICollection<Student> Students { get; set; }
     }
 }

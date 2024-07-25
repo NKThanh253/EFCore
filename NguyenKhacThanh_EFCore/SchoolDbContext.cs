@@ -17,5 +17,19 @@ namespace SchoolDomain
         {
             optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=SchoolDb;Trusted_Connection=True;");
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //Write Fluent API configurations here
+
+            //Property Configurations
+            modelBuilder.Entity<Student>()
+                    //.Property(s => s.StudentId)
+                    //.HasColumnName("Id")
+                    //.HasDefaultValue(0)
+                    //.IsRequired()
+                    .HasOne<Grade>(s => s.Grade)
+                    .WithMany(g => g.Students);
+        }
     }
 }
